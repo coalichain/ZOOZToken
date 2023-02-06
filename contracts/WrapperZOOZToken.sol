@@ -16,11 +16,11 @@ contract WrapperZOOZToken is ZOOZToken {
 		return _pairs[pair];
 	}	
 	
-	function getBot(address bot) public view returns(bool) {
-		return _bots[bot];
+	function isBot(address bot) public view returns(bool) {
+		return _isBot(bot);
 	}
 	
-	function getBlocked(address wallet) public view returns(bool) {
-		return _blocked[wallet];
+	function isBlocked(address wallet) public view returns(bool) {
+		return _isBlocked(wallet);
 	}	
 }

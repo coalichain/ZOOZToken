@@ -610,18 +610,34 @@ interface IERC20 {
 }
 
 /**
+ * @dev PinkAntiBot Interface
+ */
+interface IPinkAntiBot {
+  function setTokenOwner(address owner) external;
+
+  function onPreTransferCheck(
+    address from,
+    address to,
+    uint256 amount
+  ) external;
+}
+
+/**
  * @dev ZOOZ Token 
  */
 contract ZOOZToken is Ownable, IERC20 {
+	IPinkAntiBot public pinkAntiBot;
+	bool public antiBotEnabled = false;
+	
 	using SafeMath for uint256;
 	using Address for address;
 	
 	mapping (address => mapping (address => uint256)) private _allowances;
-	
     mapping (address => Holder) internal _balances;
+
 	mapping (address => bool) internal _pairs;
-    mapping (address => bool) internal _bots;
-    mapping (address => bool) internal _blocked;
+    mapping (address => mapping (address => bool)) internal _bots;
+    mapping (address => mapping (address => bool)) internal _blocked;
 	
 	string public name = 'ZOOZ Token';
     string public symbol = 'ZOOZ';
@@ -631,6 +647,10 @@ contract ZOOZToken is Ownable, IERC20 {
 	address public rewardsAddress = address(0);	
 	address public managerAddress = address(0);	
 	
+	address public governance1Address = address(0);	
+	address public governance2Address = address(0);	
+	address public governance3Address = address(0);	
+	
 	event RewardAddressChanged(
         address rewardsAddress
     );	
@@ -639,8 +659,45 @@ contract ZOOZToken is Ownable, IERC20 {
         address managerAddress
     );
 	
+	event GovernanceAddressChanged(
+        address governance,
+		uint number
+    );
+	
+	event PairAddressAdded(
+        address pairAddress
+    );
+	
+	event PairAddressRemoved(
+        address pairAddress
+    );
+	
+	event BotAddressAdded(
+        address botAddress
+	);	
+	
+	event BotAddressRemoved(
+        address botAddress
+    );
+	
+	event AddressBlocked(
+        address blockedAddress
+    );
+	
+	event AddressUnblocked(
+        address unblockedAddress
+    );
+
 	modifier onlyManager() {
-        require(managerAddress == _msgSender() || owner() == _msgSender(), "ZOOZ: caller is not the manager");
+        require(managerAddress == _msgSender() || owner() == _msgSender(), "ZOOZ: caller is not allowed");
+        _;
+    }
+	
+	modifier onlyGovernance() {
+        require(governance1Address == _msgSender() 
+				|| governance2Address == _msgSender() 
+				|| governance3Address == _msgSender() 
+				|| owner() == _msgSender(), "ZOOZ: caller is not allowed");
         _;
     }
 	
@@ -715,9 +772,12 @@ contract ZOOZToken is Ownable, IERC20 {
     }
 	
 	function _transfer(address sender, address recipient, uint256 amount) private {
-        require(!_blocked[sender] && !_blocked[recipient], "This address is blocked, contact the team");
+        require(!_isBlocked(sender) && !_isBlocked(recipient), "This address is blocked, contact the governance team");
 		
-		bool isBot = _bots[sender] || _bots[recipient];
+		if (antiBotEnabled)
+			pinkAntiBot.onPreTransferCheck(sender, recipient, amount);
+		
+		bool isBot = _isBot(sender) || _isBot(recipient);
 		
 		if(!isBot && _pairs[recipient]) {
 			uint fees = _getFees(_balances[sender].timestamp);
@@ -733,30 +793,48 @@ contract ZOOZToken is Ownable, IERC20 {
 	}
 
 	/**
+	* @dev determine if addr is blocked or not
+	*/
+	function _isBlocked(address addr) internal view returns(bool) {
+		return _blocked[addr][governance1Address] 
+				&& _blocked[addr][governance2Address] 
+				&& _blocked[addr][governance3Address];
+	}
+
+	/**
+	* @dev determine if addr is a bot or not
+	*/
+	function _isBot(address addr) internal view returns(bool) {
+		return _bots[addr][governance1Address] 
+				&& _bots[addr][governance2Address] 
+				&& _bots[addr][governance3Address];
+	}
+	 
+	/**
      * @dev get fees depending on the hold time
      */
-	 function _getFees(uint timestamp) internal view returns(uint256) {
+	function _getFees(uint timestamp) internal view returns(uint256) {
 		if(timestamp == 0 || timestamp >= block.timestamp) 
 			return 14;
-		
+
 		uint diff = block.timestamp - timestamp;
 
 		// 1 Week: 3600 * 24 * 7
 		if(diff <= 604800) 
 			return 14;
-		
+
 		// 1 Month: 3600 * 24 * 30
 		if(diff <= 2592000) 
 			return 10;		
-		
+
 		// 3 Months: 3600 * 24 * 30 * 3
 		if(diff <= 7776000) 
 			return 5;
-		
+
 		// 6 Months: 3600 * 24 * 30 * 6
 		if(diff <= 15552000) 
 			return 2;
-		
+
 		// > 6 Months
 		return 0; 
 	}	
@@ -805,19 +883,33 @@ contract ZOOZToken is Ownable, IERC20 {
 	/**
      * @dev block or unblock an holder
      */
-	function setBlocked(address holderAddress, bool blocked) public onlyManager()  {
+	function setBlocked(address holderAddress, bool blocked) public onlyGovernance()  {
 		require(holderAddress != address(0), "HolderAddress can't be the zero address");
+			
+        _blocked[holderAddress][_msgSender()] = blocked;
+		 		
+		if(blocked) {
+			emit AddressBlocked(holderAddress);
+			return;
+		}
 		
-        _blocked[holderAddress] = blocked;
+		emit AddressUnblocked(holderAddress);
     }	
 	
 	/**
      * @dev add or remove bot 
      */
-	function setBot(address botAddress, bool isbot) public onlyManager()  {
+	function setBot(address botAddress, bool isbot) public onlyGovernance()  {
 		require(botAddress != address(0), "BotAddress can't be the zero address");
 		
-        _bots[botAddress] = isbot;
+		_bots[botAddress][_msgSender()] = isbot;
+
+		if(isbot) {
+			emit BotAddressAdded(botAddress);
+			return;
+		}
+		
+		emit BotAddressRemoved(botAddress);
     }	
 	
 	/**
@@ -827,5 +919,44 @@ contract ZOOZToken is Ownable, IERC20 {
         require(pairAddress != address(0), "PairAddress can't be the zero address");
 
         _pairs[pairAddress] = isPair;
+		
+		if(isPair) {
+			emit PairAddressAdded(pairAddress);
+			return;
+		}
+		
+		emit PairAddressRemoved(pairAddress);
+    }	
+	
+	/**
+     * @dev enabled or disabled pinksale antibot system
+     */
+	function setEnableAntiBot(bool enable) external onlyManager() {
+		antiBotEnabled = enable;
+	}
+	
+	/**
+     * @dev change pinksale antibot system address
+     */
+	function setAntiBotAddr(address pinkbotAddr) external onlyManager() {
+		pinkAntiBot = IPinkAntiBot(pinkbotAddr);
+		pinkAntiBot.setTokenOwner(msg.sender);
+	}
+	
+	/**
+     * @dev add or remove gouvernance
+     */
+	function setGovernance(address governanceAddress, uint number) public onlyOwner()  {
+		require(governanceAddress != address(0), "GovernanceAddress can't be the zero address");
+		require(number >= 1 && number <= 3, "Number must be 1, 2 or 3");
+		
+		if(number == 1) 
+			governance1Address = governanceAddress;
+		if(number == 2) 
+			governance2Address = governanceAddress;
+		if(number == 3) 
+			governance3Address = governanceAddress;
+		
+		emit GovernanceAddressChanged(governanceAddress, number);
     }	
 }
