@@ -4,7 +4,7 @@ Our decentralised App is totally secured thanks to the Coalichain Blockchain & Z
 
 - SYMBOL: ZOOZ
 - TYPE: BEP20
-- TOTAL SUPPLY: 750 000 000
+- TOTAL SUPPLY: 770 000 000
 - DECIMALS: 9
 
 WebSite: https://zooz.finance
