@@ -19,7 +19,7 @@ contract('Transfer and timestamp tests (with fees)', (wallets) => {
 	let balanceC = await zooz.balanceOf(wallets[2]);
 	let balanceRewards = await zooz.balanceOf(wallets[5]);
 	
-	assert.equal(balanceA.toString(), "749999999999999720"); // 750M - 280 (2x1000*14%)
+	assert.equal(balanceA.toString(), "769999999999999720"); // 750M - 280 (2x1000*14%)
 	assert.equal(balanceB.toString(), 0);
 	assert.equal(balanceC.toString(), 0);
 	assert.equal(balanceRewards.toString(), "280");
@@ -43,7 +43,7 @@ contract('Transfer and timestamp tests (with fees)', (wallets) => {
 	let balanceC = await zooz.balanceOf(wallets[2]);
 	let balanceRewards = await zooz.balanceOf(wallets[5]);
 	
-	assert.equal(balanceA.toString(), "749999999999999440"); // 750M - 280 (2x1000*14%)
+	assert.equal(balanceA.toString(), "769999999999999440"); // 750M - 280 (2x1000*14%)
 	assert.equal(balanceB.toString(), 0);
 	assert.equal(balanceC.toString(), 0);
 	assert.equal(balanceRewards.toString(), "560");

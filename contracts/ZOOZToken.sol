@@ -642,7 +642,7 @@ contract ZOOZToken is Ownable, IERC20 {
 	string public name = 'ZOOZ Token';
     string public symbol = 'ZOOZ';
     uint8 public decimals = 9;
-	uint256 public _totalSupply = 750 * 10**6 * 10**9;
+	uint256 public _totalSupply = 770 * 10**6 * 10**9;
 
 	address public rewardsAddress = address(0);	
 	address public managerAddress = address(0);	

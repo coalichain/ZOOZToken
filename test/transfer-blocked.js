@@ -20,7 +20,7 @@ contract('Transfer and timestamp tests (blocked addresses)', (wallets) => {
 	let balanceA = await zooz.balanceOf(wallets[0]);
 	let balanceB = await zooz.balanceOf(wallets[1]);
 	
-	assert.equal(balanceA.toString(), "750000000000000000");
+	assert.equal(balanceA.toString(), "770000000000000000");
 	assert.equal(balanceB.toString(), 0);
   });
   
@@ -45,7 +45,7 @@ contract('Transfer and timestamp tests (blocked addresses)', (wallets) => {
 	let balanceA = await zooz.balanceOf(wallets[0]);
 	let balanceB = await zooz.balanceOf(wallets[1]);
 	
-	assert.equal(balanceA.toString(), "749000000000000000");
+	assert.equal(balanceA.toString(), "769000000000000000");
 	assert.equal(balanceB.toString(), "1000000000000000");
   });    
 });
