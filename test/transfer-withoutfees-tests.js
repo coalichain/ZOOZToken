@@ -50,16 +50,16 @@ contract('Transfer and timestamp tests (without fees)', (wallets) => {
 	assert.equal(balanceBurn.toString(), "10000000000000000");
   });
   
-  it('should be transfer without fees (with setPair true + setBot true)', async () => {
+  it('should be transfer without fees (with setPair true + setBotAddress true)', async () => {
     const zooz = await ZOOZToken.deployed();
 
 	await zooz.setGovernance(wallets[9], 1);
 	await zooz.setGovernance(wallets[8], 2);
 	await zooz.setGovernance(wallets[7], 3);
 	
-	await zooz.setBot(wallets[2], true, { from: wallets[7] });
-	await zooz.setBot(wallets[2], true, { from: wallets[8] });
-	await zooz.setBot(wallets[2], true, { from: wallets[9] });
+	await zooz.setBotAddress(wallets[2], true, { from: wallets[7] });
+	await zooz.setBotAddress(wallets[2], true, { from: wallets[8] });
+	await zooz.setBotAddress(wallets[2], true, { from: wallets[9] });
 
 	await zooz.transfer(wallets[0], "2000000000000000", { from: wallets[2] }); 
 		

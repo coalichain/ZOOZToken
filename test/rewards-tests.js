@@ -39,14 +39,14 @@ contract('Set rewards and manager addresses tests', (wallets) => {
   it('rewards and manager addresse should be changed', async () => {
     const zooz = await ZOOZToken.deployed();
 
-	await zooz.setRewardsTeamAddress("0x0000000000000000000000000000000000000000");
-	await zooz.setManagerAddress("0x0000000000000000000000000000000000000000");
+	await zooz.setRewardsTeamAddress(wallets[5]);
+	await zooz.setManagerAddress(wallets[6]);
 
 	let rewardsAddress = await zooz.rewardsAddress.call();
 	let managerAddress = await zooz.managerAddress.call();
 	
-	assert.equal("0x0000000000000000000000000000000000000000", rewardsAddress);
-	assert.equal("0x0000000000000000000000000000000000000000", managerAddress);
+	assert.equal(wallets[5], rewardsAddress);
+	assert.equal(wallets[6], managerAddress);
   });
 
   it('manager should be able to change pair, bot and blocked', async () => {
@@ -62,35 +62,35 @@ contract('Set rewards and manager addresses tests', (wallets) => {
 	
 	assert.equal(wallets[5], managerAddress);
 	
-	await zooz.setBot(wallets[3], true, { from: wallets[9] });
-	await zooz.setBot(wallets[3], true, { from: wallets[8] });
-	await zooz.setBot(wallets[3], true, { from: wallets[7] });
+	await zooz.setBotAddress(wallets[3], true, { from: wallets[9] });
+	await zooz.setBotAddress(wallets[3], true, { from: wallets[8] });
+	await zooz.setBotAddress(wallets[3], true, { from: wallets[7] });
 
-	await zooz.setBlocked(wallets[3], true, { from: wallets[9] });
-	await zooz.setBlocked(wallets[3], true, { from: wallets[8] });
-	await zooz.setBlocked(wallets[3], true, { from: wallets[7] });
+	await zooz.setBlockedAddress(wallets[3], true, { from: wallets[9] });
+	await zooz.setBlockedAddress(wallets[3], true, { from: wallets[8] });
+	await zooz.setBlockedAddress(wallets[3], true, { from: wallets[7] });
 
 	await zooz.setPair(wallets[3], true, { from: wallets[5] });
 	
 	let isPair = await zooz.getPair(wallets[3]);	
-	let isBlocked = await zooz.isBlocked(wallets[3]);	
-	let isBot = await zooz.isBot(wallets[3]);	
+	let isBlockedAddress = await zooz.isBlockedAddress(wallets[3]);	
+	let isItBotAddress = await zooz.isItBotAddress(wallets[3]);	
 	
 	assert.equal(true, isPair);
-	assert.equal(true, isBlocked);
-	assert.equal(true, isBot);
+	assert.equal(true, isBlockedAddress);
+	assert.equal(true, isItBotAddress);
 	
-	await zooz.setBot(wallets[3], false, { from: wallets[9] });
-	await zooz.setBlocked(wallets[3], false, { from: wallets[8] });
+	await zooz.setBotAddress(wallets[3], false, { from: wallets[9] });
+	await zooz.setBlockedAddress(wallets[3], false, { from: wallets[8] });
 	await zooz.setPair(wallets[3], false, { from: wallets[5] });
 	
 	isPair = await zooz.getPair(wallets[3]);	
-	isBlocked = await zooz.isBlocked(wallets[3]);	
-	isBot = await zooz.isBot(wallets[3]);	
+	isBlockedAddress = await zooz.isBlockedAddress(wallets[3]);	
+	isItBotAddress = await zooz.isItBotAddress(wallets[3]);	
 	
 	assert.equal(false, isPair);
-	assert.equal(false, isBlocked);
-	assert.equal(false, isBot);
+	assert.equal(false, isBlockedAddress);
+	assert.equal(false, isItBotAddress);
   });
   
   it('manager should not be able to change pair', async () => {

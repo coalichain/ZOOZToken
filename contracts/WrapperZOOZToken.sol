@@ -4,6 +4,12 @@ pragma solidity ^0.8.7;
 import "./ZOOZToken.sol";
 
 contract WrapperZOOZToken is ZOOZToken {
+
+	constructor(address pinkAntiBotAddr) 
+		ZOOZToken(pinkAntiBotAddr) {
+			
+	}
+	
 	function holdDateHook(address sender, address recipient) public {
 		_holdDateHook(sender, recipient);
     }
@@ -13,14 +19,14 @@ contract WrapperZOOZToken is ZOOZToken {
 	}	
 
 	function getPair(address pair) public view returns(bool) {
-		return _pairs[pair];
+		return pairs[pair];
 	}	
 	
-	function isBot(address bot) public view returns(bool) {
-		return _isBot(bot);
+	function isItBotAddress(address bot) public view returns(bool) {
+		return _isItBotAddress(bot);
 	}
 	
-	function isBlocked(address wallet) public view returns(bool) {
-		return _isBlocked(wallet);
+	function isBlockedAddress(address wallet) public view returns(bool) {
+		return _isBlockedAddress(wallet);
 	}	
 }

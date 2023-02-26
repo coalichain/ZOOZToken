@@ -8,93 +8,93 @@ contract('Set Blocked addresses tests', (wallets) => {
 	await zooz.setGovernance(wallets[8], 2);
 	await zooz.setGovernance(wallets[7], 3);
 	
-	let walletA_IsBlocked = await zooz.isBlocked(wallets[1]);
-	let walletB_IsBlocked = await zooz.isBlocked(wallets[2]);
+	let walletA_isBlockedAddress = await zooz.isBlockedAddress(wallets[1]);
+	let walletB_isBlockedAddress = await zooz.isBlockedAddress(wallets[2]);
 	
-	assert.equal(false, walletA_IsBlocked);
-	assert.equal(false, walletB_IsBlocked);
+	assert.equal(false, walletA_isBlockedAddress);
+	assert.equal(false, walletB_isBlockedAddress);
   });
   
   it('should be blocked', async () => {
     const zooz = await WrapperZOOZToken.deployed();
 
-	await zooz.setBlocked(wallets[1], true, { from: wallets[7] });
-	await zooz.setBlocked(wallets[1], true, { from: wallets[8] });
-	await zooz.setBlocked(wallets[1], true, { from: wallets[9] });
+	await zooz.setBlockedAddress(wallets[1], true, { from: wallets[7] });
+	await zooz.setBlockedAddress(wallets[1], true, { from: wallets[8] });
+	await zooz.setBlockedAddress(wallets[1], true, { from: wallets[9] });
 	
-	let walletA_IsBlocked = await zooz.isBlocked(wallets[1]);
-	let walletB_IsBlocked = await zooz.isBlocked(wallets[2]);
+	let walletA_isBlockedAddress = await zooz.isBlockedAddress(wallets[1]);
+	let walletB_isBlockedAddress = await zooz.isBlockedAddress(wallets[2]);
 	
-	assert.equal(true, walletA_IsBlocked);
-	assert.equal(false, walletB_IsBlocked);
+	assert.equal(true, walletA_isBlockedAddress);
+	assert.equal(false, walletB_isBlockedAddress);
 	
-	await zooz.setBlocked(wallets[2], false, { from: wallets[7] });
-	await zooz.setBlocked(wallets[2], false, { from: wallets[8] });
-	await zooz.setBlocked(wallets[2], false, { from: wallets[9] });
+	await zooz.setBlockedAddress(wallets[2], false, { from: wallets[7] });
+	await zooz.setBlockedAddress(wallets[2], false, { from: wallets[8] });
+	await zooz.setBlockedAddress(wallets[2], false, { from: wallets[9] });
 	
-	walletA_IsBlocked = await zooz.isBlocked(wallets[1]);
-	walletB_IsBlocked = await zooz.isBlocked(wallets[2]);
+	walletA_isBlockedAddress = await zooz.isBlockedAddress(wallets[1]);
+	walletB_isBlockedAddress = await zooz.isBlockedAddress(wallets[2]);
 	
-	assert.equal(true, walletA_IsBlocked);
-	assert.equal(false, walletB_IsBlocked);
+	assert.equal(true, walletA_isBlockedAddress);
+	assert.equal(false, walletB_isBlockedAddress);
   });
   
   it('should be unblocked', async () => {
     const zooz = await WrapperZOOZToken.deployed();
 
-	await zooz.setBlocked(wallets[1], false, { from: wallets[7] });
-	await zooz.setBlocked(wallets[1], false, { from: wallets[8] });
-	await zooz.setBlocked(wallets[1], false, { from: wallets[9] });
+	await zooz.setBlockedAddress(wallets[1], false, { from: wallets[7] });
+	await zooz.setBlockedAddress(wallets[1], false, { from: wallets[8] });
+	await zooz.setBlockedAddress(wallets[1], false, { from: wallets[9] });
 	
-	let walletA_IsBlocked = await zooz.isBlocked(wallets[1]);
-	let walletB_IsBlocked = await zooz.isBlocked(wallets[2]);
+	let walletA_isBlockedAddress = await zooz.isBlockedAddress(wallets[1]);
+	let walletB_isBlockedAddress = await zooz.isBlockedAddress(wallets[2]);
 	
-	assert.equal(false, walletA_IsBlocked);
-	assert.equal(false, walletB_IsBlocked);
+	assert.equal(false, walletA_isBlockedAddress);
+	assert.equal(false, walletB_isBlockedAddress);
 	
-	await zooz.setBlocked(wallets[1], true, { from: wallets[7] });
-	await zooz.setBlocked(wallets[1], true, { from: wallets[8] });
-	await zooz.setBlocked(wallets[1], true, { from: wallets[9] });
+	await zooz.setBlockedAddress(wallets[1], true, { from: wallets[7] });
+	await zooz.setBlockedAddress(wallets[1], true, { from: wallets[8] });
+	await zooz.setBlockedAddress(wallets[1], true, { from: wallets[9] });
 	
-	walletA_IsBlocked = await zooz.isBlocked(wallets[1]);
-	walletB_IsBlocked = await zooz.isBlocked(wallets[2]);
+	walletA_isBlockedAddress = await zooz.isBlockedAddress(wallets[1]);
+	walletB_isBlockedAddress = await zooz.isBlockedAddress(wallets[2]);
 	
-	assert.equal(true, walletA_IsBlocked);
-	assert.equal(false, walletB_IsBlocked);
+	assert.equal(true, walletA_isBlockedAddress);
+	assert.equal(false, walletB_isBlockedAddress);
   });
   
    it('should be unblocked, because missing governance', async () => {
     const zooz = await WrapperZOOZToken.deployed();
 
-	await zooz.setBlocked(wallets[2], true, { from: wallets[7] });
-	await zooz.setBlocked(wallets[2], true, { from: wallets[9] });
+	await zooz.setBlockedAddress(wallets[2], true, { from: wallets[7] });
+	await zooz.setBlockedAddress(wallets[2], true, { from: wallets[9] });
 	
-	let walletB_IsBlocked = await zooz.isBlocked(wallets[2]);
+	let walletB_isBlockedAddress = await zooz.isBlockedAddress(wallets[2]);
 	
-	assert.equal(false, walletB_IsBlocked);
+	assert.equal(false, walletB_isBlockedAddress);
 	
-	await zooz.setBlocked(wallets[2], true, { from: wallets[8] });
+	await zooz.setBlockedAddress(wallets[2], true, { from: wallets[8] });
 	
-	walletB_IsBlocked = await zooz.isBlocked(wallets[2]);
+	walletB_isBlockedAddress = await zooz.isBlockedAddress(wallets[2]);
 	
-	assert.equal(true, walletB_IsBlocked);
+	assert.equal(true, walletB_isBlockedAddress);
   });
   
   it('should not be able to change blocked address', async () => {
     const zooz = await WrapperZOOZToken.deployed();	
-	let isBlocked;
+	let isBlockedAddress;
 	
-	await Try(() => zooz.setBlocked(wallets[3], true, { from: wallets[1] }));
-	isBlocked = await zooz.isBlocked(wallets[3]);	
-	assert.equal(false, isBlocked);
+	await Try(() => zooz.setBlockedAddress(wallets[3], true, { from: wallets[1] }));
+	isBlockedAddress = await zooz.isBlockedAddress(wallets[3]);	
+	assert.equal(false, isBlockedAddress);
 	
-	await Try(() => zooz.setBlocked(wallets[1], false, { from: wallets[2] }));
-	isBlocked = await zooz.isBlocked(wallets[1]);	
-	assert.equal(true, isBlocked);
+	await Try(() => zooz.setBlockedAddress(wallets[1], false, { from: wallets[2] }));
+	isBlockedAddress = await zooz.isBlockedAddress(wallets[1]);	
+	assert.equal(true, isBlockedAddress);
 	
-	await Try(() => zooz.setBlocked(wallets[4], true, { from: wallets[2] }));	
-	isBlocked = await zooz.isBlocked(wallets[4]);	
-	assert.equal(false, isBlocked);
+	await Try(() => zooz.setBlockedAddress(wallets[4], true, { from: wallets[2] }));	
+	isBlockedAddress = await zooz.isBlockedAddress(wallets[4]);	
+	assert.equal(false, isBlockedAddress);
   });
 });
 
