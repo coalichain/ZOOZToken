@@ -283,9 +283,9 @@ contract ZOOZToken is Ownable, IERC20 {
 		uint timestamp;
     }
 
-	constructor(address pinkAntiBotAddr) {
-		if(pinkAntiBotAddr != address(0)) {
-			pinkAntiBot = IPinkAntiBot(pinkAntiBotAddr);
+	constructor(bool activePinkAntiBot) {
+		if(activePinkAntiBot) {
+			pinkAntiBot = IPinkAntiBot(0x8EFDb3b642eb2a20607ffe0A56CFefF6a95Df002);
 			pinkAntiBot.setTokenOwner(_msgSender());
 		}
 

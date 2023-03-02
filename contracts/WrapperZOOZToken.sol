@@ -5,8 +5,8 @@ import "./ZOOZToken.sol";
 
 contract WrapperZOOZToken is ZOOZToken {
 
-	constructor(address pinkAntiBotAddr) 
-		ZOOZToken(pinkAntiBotAddr) {
+	constructor(bool activePinkAntiBot) 
+		ZOOZToken(activePinkAntiBot) {
 			
 	}
 	
