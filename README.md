@@ -10,7 +10,13 @@ ZooZ Token is the Coalichain Blockchain's native Token that powers the new & ind
 
 
 WebSite: https://zooz.coalichain.io/
-
+Telegram: https://t.me/Coalichain_Zooz
+Twitter: https://twitter.com/coalichain
+Facebook: https://www.facebook.com/coalichain/
+Insta: https://www.instagram.com/coalichain/
+Youtube: https://www.youtube.com/channel/UCwHDaF13k2ktn53VdiqjErg
+Reddit: https://www.reddit.com/user/coalichain/
+Medium: https://medium.com/@coalichain25
 
 ## Smart Contract Features
 - Add or remove Blocked addresses (to fight against scams)
