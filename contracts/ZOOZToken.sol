@@ -210,7 +210,7 @@ contract ZOOZToken is Ownable, IERC20 {
     mapping (address => mapping (address => bool)) internal botAddresses;
     mapping (address => mapping (address => bool)) internal blockedAddresses;
 	
-	string public constant name = 'ZOOZ Token';
+	string public constant name = 'Coalichain Token';
     string public constant symbol = 'ZOOZ';
     uint8 public constant decimals = 9;
 	uint256 public constant totalsupply = 770 * 10**6 * 10**9;
