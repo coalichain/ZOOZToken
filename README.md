@@ -1,20 +1,22 @@
-# ZUZ Token SmartContract
+# ZOOZ Token SmartContract
 
-Our decentralised App is totally secured thanks to the Coalichain Blockchain & Zooz Token, decentralising data and transactions, making sure that no third party may interfere during any decision process or vote. Zooz Token is managed by this smart contract.
+ZooZ Token is the Coalichain Blockchain's native Token that powers the new & independent POI (Proof of Influence) Blockchain protocol, allowing to vote, take collaborative decisions or buy P2P services, securely through the Coali App and Marketplace.
 
+- NAME: Coalichain Token
 - SYMBOL: ZOOZ
 - TYPE: BEP20
 - TOTAL SUPPLY: 770 000 000
 - DECIMALS: 9
 
-WebSite: https://zooz.finance
+
+WebSite: https://zooz.coalichain.io/
 
 
 ## Smart Contract Features
 - Add or remove Blocked addresses (to fight against scams)
 - Add or remove Pair addresses
 - Add or remove Bot addresses
-- Set AntiBot PinkSale
+- Active / Desactive AntiBot PinkSale
 - Set Reward addresses
 - Set SmartContact Manager (to manage Pair, Reward addresses and Pinksale antibot)
 - Set SmartContact Governance (to manage Blocked and Bots addresses)
@@ -34,4 +36,4 @@ Sell Fees will be :
 Sell Transactions are detected via Exchange Pair addresses and administeted manually via smart contract.
 There is no possibility to change the fees amounts, even by the contract owner.
 
-Please visit https://zooz.finance to understand how these fees are used and distributed.
+Please visit https://zooz.coalichain.io/ to understand how these fees are used and distributed.
