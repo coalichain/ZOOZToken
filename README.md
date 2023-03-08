@@ -37,3 +37,25 @@ Sell Transactions are detected via Exchange Pair addresses and administeted manu
 There is no possibility to change the fees amounts, even by the contract owner.
 
 Please visit https://zooz.coalichain.io/ to understand how these fees are used and distributed.
+
+## Long Description 
+
+"The Future of Decentralized Governance with ZooZ Token
+
+Experience a new way of making decisions with Zooz, the token that powers a new blockchain protocol based on Proof of Influence. The private and independent Blockchain allows you to vote securely and transparently, while also being rewarded for your participation. 
+
+The ZooZ token is at the heart of the Coalichain ecosystem, driving the future of decentralized governance through its powerful utility and innovative features. 
+
+The platform is built on the 3 following levels:
+
+1) A Mobile App for Voting
+ZooZ token enables voting on the Coali mobile app, allowing users to participate in governance activities; voting in election, transferring power of attorney to Experts or voting in surveys, polls and resolutions. It also provides financial incentives for participation, making voting secure and rewarding.
+
+2) An Independent Blockchain
+In order to 1)save the community’s added value – inside the ecosystem and 2)provide a higher security of votes, we have developed a private Blockchain with Polkadot open-source code, ready to be integrated immediately when the community size will allow it. In the meantime, transactions are recorded on the BSC (Binance Smart Chain).
+
+3) A Social Marketplace
+Coalichain ecosystem aims to connect neighbors and provide peer-to-peer services using the ZooZ token, advanced smart contracts and a stable coin. Transparency, justice, and empowering communities are the core values in decision-making and governance on the platform.
+
+ZooZ – The Future of Communities
+Building the future of communities is not only about voting for representatives and making right decisions. The more active a community member is, the more value they create and the more valuable the community becomes. The ZooZ is the first Token in the world that measures and retains the value created – in communities."
