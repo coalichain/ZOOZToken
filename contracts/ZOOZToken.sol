@@ -210,10 +210,10 @@ contract ZOOZToken is Ownable, IERC20 {
     mapping (address => mapping (address => bool)) internal botAddresses;
     mapping (address => mapping (address => bool)) internal blockedAddresses;
 	
-	string public constant NAME = 'ZOOZ Token';
-    string public constant SYMBOL = 'ZOOZ';
-    uint8 public constant DECIMALS = 9;
-	uint256 public constant TOTALSUPPLY = 770 * 10**6 * 10**9;
+	string public constant name = 'ZOOZ Token';
+    string public constant symbol = 'ZOOZ';
+    uint8 public constant decimals = 9;
+	uint256 public constant totalsupply = 770 * 10**6 * 10**9;
 
 	address public rewardsAddress = address(0);	
 	address public managerAddress = address(0);	
@@ -289,14 +289,14 @@ contract ZOOZToken is Ownable, IERC20 {
 			pinkAntiBot.setTokenOwner(_msgSender());
 		}
 
-		balances[_msgSender()].token = TOTALSUPPLY;
+		balances[_msgSender()].token = totalsupply;
 		balances[_msgSender()].timestamp = block.timestamp;
 		
-		emit Transfer(address(0), _msgSender(), TOTALSUPPLY);
+		emit Transfer(address(0), _msgSender(), totalsupply);
 	}
 		 
 	function totalSupply() public pure override returns (uint256)  {
-		return TOTALSUPPLY;
+		return totalsupply;
     }
 	
 	function balanceOf(address account) public view override returns (uint256)  {
