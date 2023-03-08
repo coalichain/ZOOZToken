@@ -8,6 +8,13 @@ ZooZ Token is the Coalichain Blockchain's native Token that powers the new & ind
 - TOTAL SUPPLY: 770 000 000
 - DECIMALS: 9
 
+## Brand
+
+Logos:
+- https://raw.githubusercontent.com/coalichain/ZOOZToken/main/brand/logo-32x32.png
+- https://raw.githubusercontent.com/coalichain/ZOOZToken/main/brand/logo-64x64.png
+- https://raw.githubusercontent.com/coalichain/ZOOZToken/main/brand/logo-256x256.png
+
 Links: 
 - WebSite: https://zooz.coalichain.io/
 - Telegram: https://t.me/Coalichain_Zooz
