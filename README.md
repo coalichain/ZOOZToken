@@ -8,15 +8,22 @@ ZooZ Token is the Coalichain Blockchain's native Token that powers the new & ind
 - TOTAL SUPPLY: 770 000 000
 - DECIMALS: 9
 
+Links: 
+- WebSite: https://zooz.coalichain.io/
+- Telegram: https://t.me/Coalichain_Zooz
+- Twitter: https://twitter.com/coalichain
+- Facebook: https://www.facebook.com/coalichain/
+- Insta: https://www.instagram.com/coalichain/
+- Youtube: https://www.youtube.com/channel/UCwHDaF13k2ktn53VdiqjErg
+- Reddit: https://www.reddit.com/user/coalichain/
+- Medium: https://medium.com/@coalichain25
+- Pinksale: InProgress
+- PancakeSwap: InProgress
 
-WebSite: https://zooz.coalichain.io/
-Telegram: https://t.me/Coalichain_Zooz
-Twitter: https://twitter.com/coalichain
-Facebook: https://www.facebook.com/coalichain/
-Insta: https://www.instagram.com/coalichain/
-Youtube: https://www.youtube.com/channel/UCwHDaF13k2ktn53VdiqjErg
-Reddit: https://www.reddit.com/user/coalichain/
-Medium: https://medium.com/@coalichain25
+## Pancakeswap
+- Slippage Tolerance
+  - Buy : 0%
+  - Sell: 16%
 
 ## Smart Contract Features
 - Add or remove Blocked addresses (to fight against scams)
@@ -33,11 +40,11 @@ For governance issues, the management of blocked addresses and robot addresses a
 Fees are collected on sell transactions only and are decreasing according to the retention time of the ZOOZs in your wallet
 
 Sell Fees will be :
-> 14% if you held ZOOZ less than 1 Week
-> 10% if you held ZOOZ between 1 Week and 1 Month
-> 5% if you held ZOOZ between 1 Month and 3 Months
-> 2% if you held ZOOZ between 3 Months and 6 Month
-> 0% if you held ZOOZ more than 6 Months
+- > 14% if you held ZOOZ less than 1 Week
+- > 10% if you held ZOOZ between 1 Week and 1 Month
+- > 5% if you held ZOOZ between 1 Month and 3 Months
+- > 2% if you held ZOOZ between 3 Months and 6 Month
+- > 0% if you held ZOOZ more than 6 Months
 
 Sell Transactions are detected via Exchange Pair addresses and administeted manually via smart contract.
 There is no possibility to change the fees amounts, even by the contract owner.
