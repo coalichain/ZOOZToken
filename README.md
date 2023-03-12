@@ -7,7 +7,8 @@ ZooZ Token is the Coalichain Blockchain's native Token that powers the new & ind
 - TYPE: BEP20
 - TOTAL SUPPLY: 770 000 000
 - DECIMALS: 9
-- CONTRACT: ...
+- CONTRACT: 0x132306a39d6fC1E49C3Cb6D8FE8d07d4D44B462a
+- BSCSCAN: https://bscscan.com/token/0x132306a39d6fC1E49C3Cb6D8FE8d07d4D44B462a
 
 ## Brand
 
