@@ -7,6 +7,7 @@ ZooZ Token is the Coalichain Blockchain's native Token that powers the new & ind
 - TYPE: BEP20
 - TOTAL SUPPLY: 770 000 000
 - DECIMALS: 9
+- CONTRACT: ...
 
 ## Brand
 
@@ -24,10 +25,17 @@ Links:
 - Youtube: https://www.youtube.com/channel/UCwHDaF13k2ktn53VdiqjErg
 - Reddit: https://www.reddit.com/user/coalichain/
 - Medium: https://medium.com/@coalichain25
-- Pinksale: InProgress
-- PancakeSwap: InProgress
 
+## Audits
+- Cyberscope: InProgress
+- Contractchecker: InProgress
+
+## Pinksale
+- Presale Link: InProgress
+- Liquidity Lock: InProgress
+  
 ## Pancakeswap
+- Swap Link: InProgress
 - Slippage Tolerance
   - Buy : 0%
   - Sell: 16%
