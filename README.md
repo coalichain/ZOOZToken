@@ -28,15 +28,15 @@ Links:
 - Medium: https://medium.com/@coalichain25
 
 ## Audits
-- Cyberscope: InProgress
-- Contractchecker: InProgress
+- Cyberscope: https://www.coinscope.co/coin/zooz/audit
+- Contractchecker: https://github.com/ContractChecker/audits/blob/main/Coalichain_Token_0x132306a39d6fC1E49C3Cb6D8FE8d07d4D44B462a_Smart_Contract_Security_Audit_By_ContractChecker.pdf
 
 ## Pinksale
-- Presale Link: InProgress
+- Presale Link: https://www.pinksale.finance/launchpad/0xBE0dA39ce6732B686a0BA6b151aaC6B6D34727EE?chain=BSC
 - Liquidity Lock: InProgress
   
 ## Pancakeswap
-- Swap Link: InProgress
+- Swap Link: https://pancakeswap.finance/swap?outputCurrency=0x132306a39d6fC1E49C3Cb6D8FE8d07d4D44B462a&inputCurrency=0x55d398326f99059fF775485246999027B3197955
 - Slippage Tolerance
   - Buy : 0%
   - Sell: 16%
