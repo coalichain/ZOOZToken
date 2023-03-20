@@ -32,6 +32,7 @@ Links:
 - Contractchecker: https://github.com/ContractChecker/audits/blob/main/Coalichain_Token_0x132306a39d6fC1E49C3Cb6D8FE8d07d4D44B462a_Smart_Contract_Security_Audit_By_ContractChecker.pdf
 
 ## Charts
+- Dexview: https://www.dexview.com/bsc/0x132306a39d6fC1E49C3Cb6D8FE8d07d4D44B462a
 - Dextools: https://www.dextools.io/app/en/bnb/pair-explorer/0x2668958b287cc275f4162b11350092db5d8678fa
 - PooCoin: https://poocoin.app/tokens/0x132306a39d6fc1e49c3cb6d8fe8d07d4d44b462a
 
