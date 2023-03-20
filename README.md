@@ -38,7 +38,7 @@ Links:
 
 ## Pinksale
 - Presale Link: https://www.pinksale.finance/launchpad/0xBE0dA39ce6732B686a0BA6b151aaC6B6D34727EE?chain=BSC
-- Liquidity Lock: InProgress
+- Liquidity Lock: https://www.pinksale.finance/pinklock/record/1081429?chain=BSC
   
 ## Pancakeswap
 - Swap Link: https://pancakeswap.finance/swap?outputCurrency=0x132306a39d6fC1E49C3Cb6D8FE8d07d4D44B462a&inputCurrency=0x55d398326f99059fF775485246999027B3197955
